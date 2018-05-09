@@ -1,0 +1,24 @@
+langauge: java
+before_install:
+- sudo rm /usr/local/bin/docker-compose
+- curl -L https://github.com/docker/compose/releases/download/1.20.1/docker-compose-`uname
+  -s`-`uname -m` > docker-compose
+- chmod +x docker-compose
+- sudo mv docker-compose /usr/local/bin
+- docker login -u "tititity" -p "$DOCKER_PASSWORD"
+install:
+- mvn install -Dmaven.javadoc.skip=true -B -V
+- ls -l
+- docker build --build-arg JAR_FILE=/target/project.jar -t tititity/se234-backend-project
+  .
+- docker push tititity/se234-backend-project
+- docker pull dto80/project234-frontend
+script:
+- docker-compose -H "$DOCKER_HOST" up -d
+cache:
+  directories:
+  - "$HOME/.m2"
+env:
+  global:
+  - secure: VQJQZXbmuV6WVvU5zy9vodIL0oQ+KQ3TiBdiPRR3POQA0ItPofTubDc/oiXk294TdyoJE+7U1WBUOSrZcTg9jAF3MBmKZNzKN9wIgpVO+lwO7vswQnwzHP2xtzgteAUOOqQhqnr1iG699Zj2d9qD2IcRipsi8G91ZFruzal552hgM0w6RYNwND6CSrRCH8ceFHSklcU65nVmRh7UXodYRTUCyCT4LRfCOiCBFvkM3bkEJoEAPDAvxgSPA8wAwGh0Svm+b9LLmprVl9YkQfwB8FF5VCRBfFf6WdHtd9l1RUUyAY2VEcyzrYR+2Ydvd/jaDKdTv+QwffWgUf1bUStHEX9s86FT1lXEAgthEubFnapXWeG/NpHPzyIq2M3hMkqndOmGe+DRmJLzotXJtqJ4/rPPjgevTEnPLkFDMy2s3NXy18amPI467th5eRVgHBX5m69qq/4vaGSJ4urHZ/tfxEmDami6pfdD//AruS4ebfg2iP24pXbLOUtYTmSgfMJtnSPpQ1lliqQmpe1KHIuHGDac+SkxSVtqENX4mlk6GEak+Zyyn7to/tyokffDXIly/DmsfyISbtRUMLBEUQU9sahN3qjxlKB7kbDLxRM7wS+LKjSghr/FiqAug11XbbmZNSrJD0w5c0jkPVKskx/V/VCXV5WwduRQtcorVv+7wXQ=
+  - secure: Iu0etw8SErK433S8EBEuPfmbMaDtxv8TSfVP0bru9cDgkAbze9pJBpuiqCZKeaUYxkITxUuL5Bm+rX2Hcx9Ojo0VVrprQvwsyhlZuVIz6PTk1bvaMF9hgxqNR6w/rVPE6EdbQqYCJqpIvYKz/NhbQDyHFf153gGAnXwXx49er9+JbOc3AKNc1goKRHdJxor1+dMTvXACQ3iqpTD0af+GwJtRxxlTid+LpBn6+ygPCH6vSSux6Jlxkzx8CWn7j9ORA8nvamy7wAxapmcPCP9qpabaERjdbRkwzzv/zjyAPA7lnx/ruaQlJTXpLIiEu6tQVwuCSUUSbr6bxu/zPNzgk8w7xv8TygIy9GCWx8oLcTdEswxCebaBb6xHK8GhtPVzc4MFu1Cqa9aJ6dkhcGEMiTg3heP92Ir4ZUsBHHs/+UhzGwqSGJq1dGFRf7DJx79Bs4MmRDejcvwpfft2NDRM+04EHIxwlwfelRKMZ3SDCKz4U823z6sRpKKKRoo4DBfmd62ckcKS0seSX5K+X08egy7sgPZ66d8pkyLrN81giIXFvWNClECu2Y0T4iLNQh0zp8ChW516lKg+AQO27jgY05XCJq6MY55wNAx9tU0di96ur+qwd7GrEcrHNaio6mcLQ7Sah4q26BL8BajbkpILP5ZfAi/Vg3ayXosAEDbmw00=
