@@ -25,4 +25,19 @@ public class SaleTransaction {
     @OneToOne (fetch = FetchType.EAGER)
     Product product;
     int amount;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public SaleTransaction(Long id, String transactionId, String ProductId, int amount){
+        this.amount = amount;
+        this.id = id;
+        this.product.setProductId(ProductId);
+        this.transactionId = transactionId;
+    }
 }
