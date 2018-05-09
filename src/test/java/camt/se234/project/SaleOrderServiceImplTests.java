@@ -38,6 +38,6 @@ public class SaleOrderServiceImplTests {
 
     @Test
     public void testGetAverageSaleOrderPrice(){
-       
+
     }
 }
