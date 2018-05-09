@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  backend:
+    image: tititity/se234-backend-project:latest
+    ports:
+      - "8011:8080"
+  frontend:
+    image: dto80/project234-frontend
+    ports:
+      - "8012:80"
