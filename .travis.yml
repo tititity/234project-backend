@@ -9,9 +9,9 @@ before_install:
 install:
 - mvn install -Dmaven.javadoc.skip=true -B -V
 - ls -l
-- docker build --build-arg JAR_FILE=/target/project.jar -t 592115019/se234-backend-project
+- docker build --build-arg JAR_FILE=/target/project.jar -t tititity/se234-backend-project
   .
-- docker push 592115019/se234-backend-project
+- docker push tititity/se234-backend-project
 - docker pull dto80/project234-frontend
 script:
 - docker-compose -H "tcp://54.186.240.231:8012" up -d
