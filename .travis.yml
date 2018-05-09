@@ -1,0 +1,20 @@
+langauge: java
+before_install:
+- sudo rm /usr/local/bin/docker-compose
+- curl -L https://github.com/docker/compose/releases/download/1.20.1/docker-compose-`uname
+  -s`-`uname -m` > docker-compose
+- chmod +x docker-compose
+- sudo mv docker-compose /usr/local/bin
+- docker login -u "592115019" -p "02091997eisgk"
+install:
+- mvn install -Dmaven.javadoc.skip=true -B -V
+- ls -l
+- docker build --build-arg JAR_FILE=/target/project.jar -t 592115019/se234-backend-project
+  .
+- docker push 592115019/se234-backend-project
+- docker pull dto80/project234-frontend
+script:
+- docker-compose -H "tcp://54.186.240.231:8012" up -d
+cache:
+  directories:
+  - "$HOME/.m2"
