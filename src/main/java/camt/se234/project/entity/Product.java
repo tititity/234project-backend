@@ -74,7 +74,6 @@ public class Product {
         this.price = price;
     }
 
-    String imageLocation;
-    double price;
+
 
 }

@@ -18,6 +18,18 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
 
 public class SaleOrderServiceImplTests {
-    
+    @Test
+    public void testGetSaleOders(){
+        OrderDao orderDao = mock(OrderDao.class);
+        List<SaleOrder> mockSaleOrders = new ArrayList<>();
+        SaleOrderServiceImpl saleOrderService = new SaleOrderServiceImpl();
+        saleOrderService.setOrderDao(orderDao);
+        mockSaleOrders.add(new SaleOrder("001L","o001"));
+        mockSaleOrders.add(new SaleOrder("002L", "o002"));
+        mockSaleOrders.add(new SaleOrder("003L", "o003"));
+        when(orderDao.findAll()).thenReturn(mockSaleOrders);
+        assertThat(saleOrderService.getSaleOrders(),hasItems(new SaleOrder("001L","o001"),
+                new SaleOrder("002L","o002"), new SaleOrder("003L","o003")));
+    }
 }
 
