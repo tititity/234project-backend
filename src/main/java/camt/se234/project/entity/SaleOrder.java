@@ -17,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SaleOrder {
+    String product;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
@@ -37,8 +38,9 @@ public class SaleOrder {
         return totalPrice;
     }
 
-    public SaleOrder(Long id, String saleOrderId){
+    public SaleOrder(String saleOrderId,String product){
         this.id = id;
         this.saleOrderId = saleOrderId;
+        this.product = product;
     }
 }
