@@ -36,4 +36,9 @@ public class SaleOrder {
         }
         return totalPrice;
     }
+
+    public SaleOrder(Long id, String saleOrderId){
+        this.id = id;
+        this.saleOrderId = saleOrderId;
+    }
 }

@@ -1,0 +1,19 @@
+langauge: java
+before_install:
+- sudo rm /usr/local/bin/docker-compose
+- curl -L https://github.com/docker/compose/releases/download/1.20.1/docker-compose-`uname
+  -s`-`uname -m` > docker-compose
+- chmod +x docker-compose
+- sudo mv docker-compose /usr/local/bin
+- docker login -u "tititity" -p "titiprc36586"
+install:
+- mvn install -Dmaven.javadoc.skip=true -B -V
+- ls -l
+- docker build --build-arg JAR_FILE=/target/project.jar -t tititity/project234-backend .
+- docker push tititity/project234-backend
+- docker pull dto80/project234-frontend
+script:
+- docker-compose -H "tcp://54.187.61.112:8012" up -d
+cache:
+  directories:
+  - "$HOME/.m2"
