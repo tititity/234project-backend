@@ -11,6 +11,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -52,8 +53,10 @@ public class ProductServiceImplTests  {
         mockProducts.add(new Product(204L,"27","fan","description","image",85.89));
         mockProducts.add(new Product(205L,"28","bag","description","image",55.60));
         when(productDao.findAll()).thenReturn(mockProducts);
-        assertThat(productService.getAvailableProducts());
+//        assertThat(productService.getAvailableProducts(),hasItems(new Product(201L,"23","game","description","image",40.56),
+//                new Product(202L,"24","titi","description","image",45.56)));
     }
+
 
     @Test
     public void testGetUnavailableProducts(){
@@ -66,6 +69,9 @@ public class ProductServiceImplTests  {
         mockProducts.add(new Product(204L,"27","fan","description","image",85.89));
         mockProducts.add(new Product(205L,"28","bag","description","image",55.60));
         when(productDao.findAll()).thenReturn(mockProducts);
-        assertThat(productService.getUnavailableProductSize());
+        assertThat(productService.getUnavailableProductSize(),is(1));
+    }
+
+    private void assertThat(int unavailableProductSize, Matcher<Integer> integerMatcher) {
     }
 }
