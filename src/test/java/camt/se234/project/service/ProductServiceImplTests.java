@@ -9,8 +9,9 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -40,6 +41,7 @@ public class ProductServiceImplTests  {
 //        assertThat(productService.getAllProducts(),hasItems(new Product(201L,"23","game","description","image",40.56),
 //                new Product(202L,"24","titi","description","image",45.56),new Product(203L,"26","pen","description","image",34.75)));
     }
+
 
 
     @Test
