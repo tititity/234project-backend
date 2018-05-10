@@ -76,5 +76,5 @@ public class Product {
 
     String imageLocation;
     double price;
-    
+
 }
