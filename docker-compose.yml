@@ -8,3 +8,7 @@ services:
     image: dto80/project234-frontend
     ports:
       - "8012:80"
+    volumes:
+      - type:
+        source: /usr/setting
+        target: /usr/share/nginx/html/assets
