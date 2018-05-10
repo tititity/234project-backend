@@ -24,9 +24,9 @@ public class SaleOrderServiceImplTests {
 
     @Before
     public void setup(){
-         orderDao = mock(OrderDao.class);
-         saleOrderService = new SaleOrderServiceImpl();
-         saleOrderService.setOrderDao(orderDao);
+        orderDao = mock(OrderDao.class);
+        saleOrderService = new SaleOrderServiceImpl();
+        saleOrderService.setOrderDao(orderDao);
     }
 
     @Test
@@ -55,6 +55,6 @@ public class SaleOrderServiceImplTests {
         mockSaleOrder.add(new SaleOrder("003L", "o003"));
         when(orderDao.getOrders()).thenReturn(mockSaleOrder);
         assertThat(saleOrderService.getSaleOrders(),hasItems(new SaleOrder("001L","o001"),
-               new SaleOrder("002L","o002"), new SaleOrder("003L","o003")));
+                new SaleOrder("002L","o002"), new SaleOrder("003L","o003")));
     }
 }
