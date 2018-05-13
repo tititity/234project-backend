@@ -11,7 +11,7 @@ before_install:
 install:
 - mvn install -Dmaven.javadoc.skip=true -B -V
 - ls -l
-- docker build --build-arg JAR_FILE=/target/project.jar -t tititity/project234-backend .
+- docker build --build-arg JAR_FILE=/target/project.jar -t 592115019/project234-backend .
 - docker push 592115019/project234-backend
 - docker pull dto80/project234-frontend
 script:
