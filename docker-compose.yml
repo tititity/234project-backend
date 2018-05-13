@@ -10,5 +10,5 @@ services:
       - "8012:80"
     volumes:
       - type:
-        source: /usr/setting
+        source: /setting
         target: /usr/share/nginx/html/assets
