@@ -11,4 +11,4 @@ services:
     volumes:
       - type:
         source: /setting
-        target: /usr/share/nginx/html/assets
+        target: /usr/share/nginx/html/assets.
