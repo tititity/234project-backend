@@ -30,7 +30,7 @@ public class ProjectApplicationTests {
     ProductRepository productRepository;
     @Autowired
     SaleOrderService saleOrderService;
-    @Test
+//     @Test
     public void testAddTransaction(){
         SaleOrder order = SaleOrder.builder()
                 .saleOrderId("O001")
