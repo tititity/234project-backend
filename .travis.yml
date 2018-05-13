@@ -14,8 +14,6 @@ install:
 - docker build --build-arg JAR_FILE=/target/project.jar -t 592115019/project234-backend .
 - docker push 592115019/project234-backend
 - docker pull dto80/project234-frontend
-script:
-- docker-compose -H "tcp://54.186.240.231:8012" up -d
 cache:
   directories:
   - "$HOME/.m2"
