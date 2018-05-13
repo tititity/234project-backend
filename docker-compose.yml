@@ -3,7 +3,7 @@ services:
   backend:
     image: 592115019/project234-backend:latest
     ports:
-      - "8011:8080"
+      - "8013:8080"
   frontend:
     image: dto80/project234-frontend
     ports:
