@@ -5,6 +5,7 @@ import camt.se234.project.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -13,6 +14,7 @@ import java.util.stream.StreamSupport;
 public class ProductDaoImpl implements ProductDao{
     List<Product> products;
     public ProductDaoImpl(){
+        products = new ArrayList<>();
         products.add(new Product(201L,"23","game","description","image",40.56));
         products.add(new Product(202L,"24","titi","description","image",45.56));
         products.add(new Product(203L,"26","pen","description","image",34.75));
