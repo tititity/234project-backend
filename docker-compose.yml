@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   backend:
-    image: 592115019/se234-backend-project:latest
+    image: 592115019/project234-backend:latest
     ports:
       - "8011:8080"
   frontend:
