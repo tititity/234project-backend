@@ -7,15 +7,15 @@ before_install:
   -s`-`uname -m` > docker-compose
 - chmod +x docker-compose
 - sudo mv docker-compose /usr/local/bin
-- docker login -u "tititity" -p "titiprc36586"
+- docker login -u "592115019" -p "02091997eisgk"
 install:
 - mvn install -Dmaven.javadoc.skip=true -B -V
 - ls -l
 - docker build --build-arg JAR_FILE=/target/project.jar -t tititity/project234-backend .
-- docker push tititity/project234-backend
+- docker push 592115019/project234-backend
 - docker pull dto80/project234-frontend
 script:
-- docker-compose -H "tcp://54.187.61.112:8012" up -d
+- docker-compose -H "tcp://54.186.240.231:8012" up -d
 cache:
   directories:
   - "$HOME/.m2"
